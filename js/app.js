@@ -55,10 +55,10 @@ function cadastrarDespesa(){
     let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
 
     if(despesa.validarDados()){
-        //bd.gravar(despesa);
-        console.log("Dados Válidos!")
+        bd.gravar(despesa);
+        $('#sucessoGravacao').modal('show');
     }else{
-        console.log("Dados Inválidos!");
+        $('#errogravacao').modal('show');
     }
     
 }
