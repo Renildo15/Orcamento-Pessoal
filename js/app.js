@@ -38,6 +38,21 @@ class Bd{
         localStorage.setItem(id, JSON.stringify(d));
         localStorage.setItem('id', id);
     }
+
+    recuperaTodosRegistros(){
+        let id = localStorage.getItem('id')
+        let despesas = Array();
+        for(let i = 1; i <= id; i++){
+            let despesa = JSON.parse(localStorage.getItem(i));
+
+            if(despesa === null){///impede que um objeto nulo seja gravado.
+                continue
+            }
+
+            despesas.push(despesa)
+        }
+        return despesas;
+    }
 }
 
 let bd = new Bd();
@@ -98,4 +113,11 @@ function cadastrarDespesa(){
         div_msg.textContent = msg_div;
     }
     
+}
+
+
+function carregaListaDespesas(){
+    let despesas = Array();
+    despesas = bd.recuperaTodosRegistros();
+    console.log(despesas)
 }
