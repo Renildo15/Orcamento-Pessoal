@@ -56,9 +56,46 @@ function cadastrarDespesa(){
 
     if(despesa.validarDados()){
         bd.gravar(despesa);
-        $('#sucessoGravacao').modal('show');
+        $('#modalRegistarDespesa').modal('show');
+
+        let div_texto = document.getElementById("div-texto");
+        let label_h5 = document.getElementById("exampleModalLabel");
+        let div_msg = document.getElementById("div-msg");
+        let btn = document.getElementById("btn");
+
+        let msg = "Registro inserido com sucesso";
+        let msg_div = "Despesa registrada com sucesso!";
+        let msg_btn = "Voltar";
+
+        div_texto.classList.add("text-success");
+        div_texto.classList.remove("text-danger");
+        btn.classList.remove("btn-danger");
+        btn.classList.add("btn-success");
+
+        btn.textContent = msg_btn;
+        label_h5.textContent = msg;
+        div_msg.textContent = msg_div;
+
     }else{
-        $('#errogravacao').modal('show');
+        $('#modalRegistarDespesa').modal('show');
+
+        let div_texto = document.getElementById("div-texto");
+        let label_h5 = document.getElementById("exampleModalLabel");
+        let div_msg = document.getElementById("div-msg");
+        let btn = document.getElementById("btn");
+
+        let msg = "Erro na gravação";
+        let msg_div = "Preencha todos os campos obrigatórios!";
+        let msg_btn = "Voltar e corrigir";
+        
+
+
+        div_texto.classList.add("text-danger");
+        btn.classList.add("btn-danger");
+
+        btn.textContent = msg_btn;
+        label_h5.textContent = msg;
+        div_msg.textContent = msg_div;
     }
     
 }
