@@ -91,6 +91,13 @@ function cadastrarDespesa(){
         label_h5.textContent = msg;
         div_msg.textContent = msg_div;
 
+        dia.value = "";
+        descricao.value = "";
+        valor.value = "";
+        ano.value = "";
+        mes.value = "";
+        tipo.value = "";
+
     }else{
         $('#modalRegistarDespesa').modal('show');
 
